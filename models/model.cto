@@ -1,0 +1,28 @@
+namespace votos
+
+participant votante identified by hash {
+  o String hash
+  --> status status
+}
+
+participant candidato identified by nombre{
+  o String nombre
+  //daatos
+  --> Votos votos
+}
+
+asset Votos identified by id {
+  o String id
+  o Double Votos
+}
+
+asset status identified by id{
+  o String id
+  o Boolean status default= true
+ }
+
+
+transaction Votar{
+  --> votante hash
+  --> candidato candidato
+}
